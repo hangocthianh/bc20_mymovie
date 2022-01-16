@@ -1,8 +1,8 @@
 {
-    "compilerOptions": {
-      "baseUrl": "./src",
-      "paths": {
-        "containers/*": ["./containers/*"],
-      }
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "containers/*": ["./containers/*"]
     }
   }
+}
