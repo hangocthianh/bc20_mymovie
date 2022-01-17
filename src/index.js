@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './index.css';
 import App from './App';
+import 'animate.css';
 import reportWebVitals from './reportWebVitals';
 import "jquery/dist/jquery.min.js";
 import "popper.js/dist/umd/popper.min.js";
