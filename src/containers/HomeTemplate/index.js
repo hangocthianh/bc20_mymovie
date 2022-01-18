@@ -13,7 +13,7 @@ export default function HomeTemplate(props) {
         path={path}
         component={component}
       />
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }

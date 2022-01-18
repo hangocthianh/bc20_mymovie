@@ -1,72 +1,103 @@
-import React from "react";
+import React from 'react';
 import {
-Box,
-Container,
-Row,
-Column,
-FooterLink,
-Heading,
-} from './FooterStyle';
-
-const Footer = () => {
-return (
-	<Box>
-	<Container>
-		<Row>
-		<Column>
-			<Heading>About Us</Heading>
-			<FooterLink href="#">Aim</FooterLink>
-			<FooterLink href="#">Vision</FooterLink>
-			<FooterLink href="#">Testimonials</FooterLink>
-		</Column>
-		<Column>
-			<Heading>Services</Heading>
-			<FooterLink href="#">Writing</FooterLink>
-			<FooterLink href="#">Internships</FooterLink>
-			<FooterLink href="#">Coding</FooterLink>
-			<FooterLink href="#">Teaching</FooterLink>
-		</Column>
-		<Column>
-			<Heading>Contact Us</Heading>
-			<FooterLink href="#">Uttar Pradesh</FooterLink>
-			<FooterLink href="#">Ahemdabad</FooterLink>
-			<FooterLink href="#">Indore</FooterLink>
-			<FooterLink href="#">Mumbai</FooterLink>
-		</Column>
-		<Column>
-			<Heading>Social Media</Heading>
-			<FooterLink href="#">
-			<i className="fab fa-facebook-f">
-				<span style={{ marginLeft: "10px" }}>
-				Facebook
-				</span>
-			</i>
-			</FooterLink>
-			<FooterLink href="#">
-			<i className="fab fa-instagram">
-				<span style={{ marginLeft: "10px" }}>
-				Instagram
-				</span>
-			</i>
-			</FooterLink>
-			<FooterLink href="#">
-			<i className="fab fa-twitter">
-				<span style={{ marginLeft: "10px" }}>
-				Twitter
-				</span>
-			</i>
-			</FooterLink>
-			<FooterLink href="#">
-			<i className="fab fa-youtube">
-				<span style={{ marginLeft: "10px" }}>
-				Youtube
-				</span>
-			</i>
-			</FooterLink>
-		</Column>
-		</Row>
-	</Container>
-	</Box>
-);
-};
-export default Footer;
+  Box,
+  Container,
+  Column,
+  ColumnTitle,
+  List,
+  ListItem,
+  FooterLink
+} from './_components/FooterStyle';
+export default function Footer() {
+  return (
+    <Box>
+      <Container>
+        <Column>
+          <ColumnTitle>
+            ABC Việt Nam
+          </ColumnTitle>
+          <List>
+            <ListItem>
+              <FooterLink>
+                Giới Thiệu
+              </FooterLink>
+            </ListItem>
+            <ListItem>
+              <FooterLink>
+                Tiện Ích Online
+              </FooterLink>
+            </ListItem>
+            <ListItem>
+              <FooterLink>
+                Thẻ Quà Tặng
+              </FooterLink>
+            </ListItem>
+            <ListItem>
+              <FooterLink>
+                Tuyển Dụng
+              </FooterLink>
+            </ListItem>
+            <ListItem>
+              <FooterLink>
+                Liên Hệ Quảng Cáo CGV
+              </FooterLink>
+            </ListItem>
+          </List>
+        </Column>
+        <Column>
+          <ColumnTitle>
+            Điều khoản sử dụng
+          </ColumnTitle>
+          <List>
+            <ListItem>
+              <FooterLink>
+                Điều Khoản Chung
+              </FooterLink>
+            </ListItem>
+            <ListItem>
+              <FooterLink>
+                Điều Khoản Giao Dịch
+              </FooterLink>
+            </ListItem>
+            <ListItem>
+              <FooterLink>
+                Chính Sách Thanh Toán
+              </FooterLink>
+            </ListItem>
+            <ListItem>
+              <FooterLink>
+                Chính Sách Bảo Mật
+              </FooterLink>
+            </ListItem>
+            <ListItem>
+              <FooterLink>
+                Câu Hỏi Thường Gặp
+              </FooterLink>
+            </ListItem>
+          </List>
+        </Column>
+        <Column>
+          <ColumnTitle>
+            Kết nối với chúng tôi
+          </ColumnTitle>
+        </Column>
+        <Column>
+          <ColumnTitle>
+            Chăm sóc khách hàng
+          </ColumnTitle>
+          <List>
+            <ListItem>
+              Hotline: 1900 6017
+            </ListItem>
+            <ListItem>
+              Giờ làm việc: 8:00 - 22:00 (Tất cả các ngày bao gồm cả Lễ Tết)
+            </ListItem>
+            <ListItem>
+              Email hỗ trợ: hoidap@cgv.vn
+            </ListItem>
+          </List>
+        </Column>
+      </Container>
+    </Box>
+  )
+}
