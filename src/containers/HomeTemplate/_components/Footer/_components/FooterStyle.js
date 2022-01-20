@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 export const Box = styled.footer`
   width: 100%;
   background-color: #000;
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: relative;
 `;
 
 export const Container = styled.div`

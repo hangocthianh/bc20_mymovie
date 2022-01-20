@@ -10,7 +10,6 @@ function App() {
     <Suspense>
       <BrowserRouter>
         <Switch>
-          HEAD
           {renderRouteHome()}
         </Switch>
       </BrowserRouter>

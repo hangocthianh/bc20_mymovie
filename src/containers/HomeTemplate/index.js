@@ -8,11 +8,13 @@ export default function HomeTemplate(props) {
   return (
     <>
       <Header />
-      <Route
-        exact={exact}
-        path={path}
-        component={component}
-      />
+      <>
+        <Route
+          exact={exact}
+          path={path}
+          component={component}
+        />
+      </>
       <Footer />
     </>
   )
