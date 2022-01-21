@@ -1,0 +1,18 @@
+.DetailMovie{
+    color: #000;
+    background-color: #fff;
+}
+.Movie{
+    padding-top: 50px;
+}
+.DetailMovie .trailerMovie{
+    border: 0;
+}
+
+.logoTheater img{
+    width: 110px;
+}
+.logoRap{
+    width: 80px;
+    
+}
