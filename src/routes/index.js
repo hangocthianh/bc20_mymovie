@@ -2,15 +2,15 @@ import HomeTemplate from "containers/HomeTemplate";
 
 import { lazy } from "react";
 const routesHome=[
-    // {
-    //     exact: true,
-    //     path: "/",
-    //     component: lazy(()=>import("containers/HomeTemplate/Homepage")),
-    // },
     {
         exact: false,
         path:"/detail-movie/:id",
         component: lazy(()=>import("containers/HomeTemplate/DetailMovie"))
+    },
+    {
+        exact: false,
+        path:"/book-ticket/:maLichChieu",
+        component: lazy(()=>import("containers/HomeTemplate/BookTicket"))
     },
 
 ];

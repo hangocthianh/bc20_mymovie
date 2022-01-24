@@ -5,28 +5,25 @@ import { Link } from 'react-router-dom';
 
 function ShowtimesMovie(props) {
     const { data } = props;
-    console.log(data);
-
     const theater = [];
     data?.heThongRapChieu?.map((item, index) => {
         return theater.push(item.tenHeThongRap)
     });
-
     const [heThongRap, setHeThongRap] = React.useState(theater[0]);
 
     const renderShowtimes = () => {
-        return data?.heThongRapChieu?.map((heThong, index) => {
+        return data?.heThongRapChieu?.map((heThong) => {
             if (heThongRap === heThong.tenHeThongRap) {
                 return (
                     <div>
-                        <div className='logoTheater'>
-                            <img src={heThong.logo} />
+                        <div className='logoTheater py-2'>
+                            <img src={heThong.logo} alt={heThong.logo} />
                         </div>
                         {heThong?.cumRapChieu?.map((cumRap, index) => {
                             return <div>
-                                <div className='row align-items-center border-top pt-2'>
+                                <div className='row align-items-center border-top pt-3'>
                                     <div className='col-2'>
-                                        <img className='logoRap' src={cumRap.hinhAnh} />
+                                        <img className='logoRap' src={cumRap.hinhAnh} alt={cumRap.hinhAnh}/>
                                     </div>
                                     <div className='col-10'>
                                         <h3>{cumRap.tenCumRap}</h3>
@@ -50,7 +47,6 @@ function ShowtimesMovie(props) {
 
     return (
         <div>
-            <br />
             <Autocomplete
                 value={heThongRap}
                 onChange={(event, newValue) => {
