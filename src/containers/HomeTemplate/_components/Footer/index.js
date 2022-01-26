@@ -18,27 +18,27 @@ export default function Footer() {
           </ColumnTitle>
           <List>
             <ListItem>
-              <FooterLink>
+              <FooterLink to="#">
                 Giới Thiệu
               </FooterLink>
             </ListItem>
             <ListItem>
-              <FooterLink>
+              <FooterLink to="#">
                 Tiện Ích Online
               </FooterLink>
             </ListItem>
             <ListItem>
-              <FooterLink>
+              <FooterLink to="#">
                 Thẻ Quà Tặng
               </FooterLink>
             </ListItem>
             <ListItem>
-              <FooterLink>
+              <FooterLink to="#">
                 Tuyển Dụng
               </FooterLink>
             </ListItem>
             <ListItem>
-              <FooterLink>
+              <FooterLink to="#">
                 Liên Hệ Quảng Cáo CGV
               </FooterLink>
             </ListItem>
@@ -50,27 +50,27 @@ export default function Footer() {
           </ColumnTitle>
           <List>
             <ListItem>
-              <FooterLink>
+              <FooterLink to="#">
                 Điều Khoản Chung
               </FooterLink>
             </ListItem>
             <ListItem>
-              <FooterLink>
+              <FooterLink to="#">
                 Điều Khoản Giao Dịch
               </FooterLink>
             </ListItem>
             <ListItem>
-              <FooterLink>
+              <FooterLink to="#">
                 Chính Sách Thanh Toán
               </FooterLink>
             </ListItem>
             <ListItem>
-              <FooterLink>
+              <FooterLink to="#">
                 Chính Sách Bảo Mật
               </FooterLink>
             </ListItem>
             <ListItem>
-              <FooterLink>
+              <FooterLink to="#">
                 Câu Hỏi Thường Gặp
               </FooterLink>
             </ListItem>
