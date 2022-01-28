@@ -1,32 +1,42 @@
-import HomeTemplate from "containers/HomeTemplate";
-
+//import libraries
+import { } from 'react-router-dom';
 import { lazy } from "react";
-const routesHome=[
-    {
-        exact: false,
-        path:"/detail-movie/:id",
-        component: lazy(()=>import("containers/HomeTemplate/DetailMovie"))
-    },
-    {
-        exact: false,
-        path:"/book-ticket/:maLichChieu",
-        component: lazy(()=>import("containers/HomeTemplate/BookTicket"))
-    },
 
+//import components
+import HomeTemplate from 'containers/HomeTemplate';
+import HomePage from 'containers/HomeTemplate/HomePage';
+const routeHome = [
+  //Home page
+  {
+    exact: true,
+    path: '/',
+    component: HomePage,
+  },
+  // DetailMovie
+  {
+     exact: false,
+     path:"/detail-movie/:id",
+     component: lazy(()=>import("containers/HomeTemplate/DetailMovie"))
+    },
+  //BookTicket
+    {
+     exact: false,
+     path:"/book-ticket/:maLichChieu",
+     component: lazy(()=>import("containers/HomeTemplate/BookTicket"))
+    },
 ];
 
-const renderRoutesHome=()=>{
-    return routesHome.map((route, index)=>{
-        return(
-            <HomeTemplate
-            key={index}
-            exact={route.exact}
-            path={route.path}
-            component={route.component}
-            />
-        )
-    })
-}
+const renderRouteHome = () => {
+  return routeHome.map((route, index) => {
+    return (
+      <HomeTemplate
+        key={index}
+        exact={route.exact}
+        path={route.path}
+        component={route.component}
+      />
+    );
+  });
+};
 
-
-export {renderRoutesHome};
+export { renderRouteHome }

@@ -1,16 +1,16 @@
+//import library
 import React, { Suspense } from "react";
 import './App.css';
-
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import {renderRoutesHome} from "./routes/index"
-
+//import components
+import { renderRouteHome } from './routes'
 
 function App() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <BrowserRouter>
         <Switch>
-          {renderRoutesHome()}
+          {renderRouteHome()}
         </Switch>
       </BrowserRouter>
     </Suspense>
