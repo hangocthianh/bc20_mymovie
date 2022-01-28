@@ -7,7 +7,7 @@ import { renderRouteHome } from './routes'
 
 function App() {
   return (
-    <Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
       <BrowserRouter>
         <Switch>
           {renderRouteHome()}

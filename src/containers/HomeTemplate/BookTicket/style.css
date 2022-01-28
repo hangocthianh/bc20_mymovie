@@ -1,0 +1,43 @@
+.bookingTicket{
+    color:#000;
+}
+.Button {
+    border-radius: 0px 0px 5px 5px;
+    font-size: 1rem;
+    padding: 0.7rem;
+    width: 30px;
+    height: 30px;
+    color: #000;
+
+}
+.Seat{
+    border: solid 3px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+        linear-gradient(100deg, #d15116, #f7941e, #eec42a);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 2px 1000px 1px #fff inset;
+}
+.screen{
+    border-bottom: 30px solid rgb(247, 246, 246);
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    height: 100;
+    width: 97%;
+    filter: drop-shadow(0px 25px 10px rgba(196, 196, 196, 0.25));
+    font-size: 25px;
+    text-align: center;
+}
+.CheckedSeat {
+    border: solid 3px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+        linear-gradient(100deg, #d15116, #f7941e, #eec42a);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 2px 1000px 1px #fff;
+}
+
+.OccupiedSeat {
+    border: solid 3px rgb(117, 117, 117);
+    background-color: rgb(117, 117, 117);
+}
