@@ -1,165 +1,103 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 
-const pages = ['PHIM', 'THÔNG TIN RẠP', 'THÀNH VIÊN', 'KHUYẾN MÃI'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import {
+  Box,
+  Container,
+  Logo,
+  NavLeft,
+  NavRight,
+  NavItem,
+  HeaderLink,
+} from './_components/HeaderStyles';
+import {
+  Menu,
+  MenuItem,
+  MenuLink,
+  NavToggleClose,
+  NavToggleOpen,
+  CloseToggle
+} from './_components/NavToggled'
 
-const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+function Header() {
+  const [navToggled, setNavToggled] = useState(false);
+  const handleNavToggle = () => {
+    setNavToggled(!navToggled);
+  }
   return (
-    <AppBar position="static" sx={{ bgcolor: '#000' }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ color: '#F08B23', flexGrow: 1, mr: 2, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}
-          >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, mx: 4, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-start' }}>
+    <>
+      <Box>
+        <Container>
+          <NavToggleOpen
+            className="animate__animated animate__fadeInRight"
+            onClick={handleNavToggle}
+          />
+          <Logo>
+            IMOVIE
+          </Logo>
+          <NavLeft>
+            <NavItem>
+              <HeaderLink to="#">
+                PHIM
+              </HeaderLink>
+            </NavItem>
+            <NavItem>
+              <HeaderLink to="#">
+                THÔNG TIN RẠP
+              </HeaderLink>
+            </NavItem>
+            <NavItem>
+              <HeaderLink to="#">
+                THÀNH VIÊN
+              </HeaderLink>
+            </NavItem>
+            <NavItem>
+              <HeaderLink to="#">
+                KHUYẾN MÃI
+              </HeaderLink>
+            </NavItem>
+          </NavLeft>
+          <NavRight>
             <Button
-              sx={{ fontSize: 'default', textTransform: 'capitalize', my: 2, color: 'white', display: 'block' }}
+              variant="text"
+              sx={{ color: 'white', fontSize: { xs: 11, md: 13 }, textTransform: 'capitalize' }}
             >
-              Login
+              Đăng nhập
             </Button>
             <Button
-              sx={{ fontSize: 'default', textTransform: 'capitalize', my: 2, color: 'white', display: 'block' }}
+              variant="text"
+              sx={{ color: 'white', fontSize: { xs: 11, md: 13 }, textTransform: 'capitalize' }}
             >
-              Register
+              Đăng ký
             </Button>
-          </Box>
-          {/* Responsive */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{color: '#F08B23', flexGrow: 4, display: { xs: 'flex', md: 'none' }, justifyContent: 'center' }}
-          >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
-            <Button
-              sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-              Login
-            </Button>
-            <Button
-              sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-              Register
-            </Button>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          </NavRight>
+        </Container>
+      </Box>
+      {navToggled ?
+        <NavToggleClose className="animate__animated animate__fadeIn">
+          <Menu>
+            <MenuItem className="animate__animated animate__fadeInRight">
+              <MenuLink to="#">PHIM</MenuLink>
+            </MenuItem>
+            <MenuItem className="animate__animated animate__fadeInRight">
+              <MenuLink to="#">THÔNG TIN RẠP</MenuLink>
+            </MenuItem>
+            <MenuItem className="animate__animated animate__fadeInRight">
+              <MenuLink to="#">THÀNH VIÊN</MenuLink>
+            </MenuItem>
+            <MenuItem className="animate__animated animate__fadeInRight">
+              <MenuLink to="#">KHUYẾN MÃI</MenuLink>
+            </MenuItem>
+          </Menu>
+          <CloseToggle
+            className="animate__animated animate__fadeInRight"
+            animation-duration = '2s'
+            onClick={handleNavToggle}
+          />
+        </NavToggleClose > : null
+      }
 
-          {/* Avatar User */}
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
-  );
-};
-export default ResponsiveAppBar;
+    </>
+  )
+}
+export default Header;
