@@ -32,6 +32,7 @@ export const Column = styled.div`
 export const ColumnTitle = styled.h6`
   font-weight: bold;
   color: #F08B23;
+  padding-top: 20px;
 `;
 export const List = styled.ul`
   padding: 0;

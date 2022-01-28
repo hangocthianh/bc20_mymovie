@@ -21,6 +21,12 @@ export const Logo = styled.h1`
   font-size: 30px;
   font-weight: bold;
   flex-grow: 2;
+  margin-bottom: 0!important;
+  @media (max-width: 828px) {
+    flex-grow: 2;
+    text-align: center;
+    font-size: 26px;
+  }
   @media (max-width: 767px) {
     flex-grow: 2;
     text-align: center;
@@ -48,8 +54,12 @@ export const NavItem = styled.li`
   margin-left: 40px;
   font-size: 13px;
   @media (max-width: 992px) {
-    font-size: 0.73rem;
+    font-size: 0.72rem;
     margin-left: 18px;
+  }
+  @media (max-width: 828px) {
+    font-size: 0.66rem;
+    margin-left: 14px;
   }
 `;
 

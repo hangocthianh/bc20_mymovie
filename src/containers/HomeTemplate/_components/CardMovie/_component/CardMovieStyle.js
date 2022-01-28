@@ -20,6 +20,10 @@ export const CardTitle = styled.h6`
   text-align: center;
   margin-bottom: 15px;
   font-size: 1rem;
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
 `;
 
 export const CardFooter = styled.div`
@@ -31,6 +35,7 @@ export const CardFooter = styled.div`
   bottom: 0;
   background-color: rgba(0, 0, 0,0.7);
   padding: 10px 0;
+  border-radius: 0 0 5px 5px;
   transition: all 2s;
   ${CardWrapper}:hover & {
     display:block;
@@ -53,6 +58,15 @@ export const CardPlay = styled.button`
   ${CardWrapper}:hover & {
     display:block;
   };
+  @media (max-width: 992px) {
+    top: 40%;
+  };
+  @media (max-width: 768px) {
+    padding: 5px 10px;
+    span{
+      display: none;
+    }
+  };
 `;
 
 export const CardDetails = styled(Link)`
@@ -65,7 +79,11 @@ export const CardDetails = styled(Link)`
   font-size: 0.8rem;
   &:hover{
     color: #ffffff;
-  }
+  };
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  };
 `;
 
 export const CardBook = styled.button`
@@ -76,4 +94,11 @@ export const CardBook = styled.button`
   border-radius: 5px;
   font-weight: 500;
   font-size: 0.8rem;
+  &:disabled{
+    cursor: no-drop;
+  };
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
 `;

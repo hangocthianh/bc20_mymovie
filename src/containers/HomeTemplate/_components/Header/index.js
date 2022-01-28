@@ -33,7 +33,7 @@ function Header() {
             onClick={handleNavToggle}
           />
           <Logo>
-            Logo
+            IMOVIE
           </Logo>
           <NavLeft>
             <NavItem>
@@ -74,18 +74,18 @@ function Header() {
         </Container>
       </Box>
       {navToggled ?
-        <NavToggleClose className="animate__animated animate__fadeInRight">
+        <NavToggleClose className="animate__animated animate__fadeIn">
           <Menu>
-            <MenuItem>
+            <MenuItem className="animate__animated animate__fadeInRight">
               <MenuLink to="#">PHIM</MenuLink>
             </MenuItem>
-            <MenuItem>
+            <MenuItem className="animate__animated animate__fadeInRight">
               <MenuLink to="#">THÔNG TIN RẠP</MenuLink>
             </MenuItem>
-            <MenuItem>
+            <MenuItem className="animate__animated animate__fadeInRight">
               <MenuLink to="#">THÀNH VIÊN</MenuLink>
             </MenuItem>
-            <MenuItem>
+            <MenuItem className="animate__animated animate__fadeInRight">
               <MenuLink to="#">KHUYẾN MÃI</MenuLink>
             </MenuItem>
           </Menu>

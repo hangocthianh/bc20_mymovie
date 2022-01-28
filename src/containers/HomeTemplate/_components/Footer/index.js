@@ -1,5 +1,12 @@
 import React from 'react';
 import {
+  AiFillFacebook,
+  AiFillYoutube,
+  AiFillInstagram,
+  AiFillTwitterSquare
+} from "react-icons/ai";
+
+import {
   Box,
   Container,
   Column,
@@ -14,7 +21,7 @@ export default function Footer() {
       <Container>
         <Column>
           <ColumnTitle>
-            ABC Việt Nam
+            IMOVIE Việt Nam
           </ColumnTitle>
           <List>
             <ListItem>
@@ -39,7 +46,7 @@ export default function Footer() {
             </ListItem>
             <ListItem>
               <FooterLink to="#">
-                Liên Hệ Quảng Cáo CGV
+                Liên Hệ Quảng Cáo IMOVIE
               </FooterLink>
             </ListItem>
           </List>
@@ -79,6 +86,20 @@ export default function Footer() {
         <Column>
           <ColumnTitle>
             Kết nối với chúng tôi
+            <div className="mt-3">
+              <FooterLink to="/#">
+                <span><AiFillFacebook size={40} /></span>
+              </FooterLink>
+              <FooterLink to="/#">
+                <span><AiFillYoutube size={40} /></span>
+              </FooterLink>
+              <FooterLink to="/#">
+                <span><AiFillInstagram size={40} /></span>
+              </FooterLink>
+              <FooterLink to="/#">
+                <span><AiFillTwitterSquare size={40} /></span>
+              </FooterLink>
+            </div>
           </ColumnTitle>
         </Column>
         <Column>
@@ -93,7 +114,7 @@ export default function Footer() {
               Giờ làm việc: 8:00 - 22:00 (Tất cả các ngày bao gồm cả Lễ Tết)
             </ListItem>
             <ListItem>
-              Email hỗ trợ: hoidap@cgv.vn
+              Email hỗ trợ: hoidap@imovie.vn
             </ListItem>
           </List>
         </Column>

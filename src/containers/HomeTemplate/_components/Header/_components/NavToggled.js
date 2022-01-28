@@ -18,6 +18,7 @@ export const MenuItem = styled.li`
   list-style-type: none;
   font-size: 25px;
   margin-bottom: 30px;
+  cursor: pointer;
   &:hover {
     border-bottom: 2px solid #F08B23;
   }
@@ -25,7 +26,8 @@ export const MenuItem = styled.li`
 export const MenuLink = styled(Link)`
   text-decoration: none!important;
   color: #ffffff;
-  &:hover {
+  font-weight: bold;
+  ${MenuItem}:hover & {
     color: #F08B23
   }
 `;
@@ -37,7 +39,8 @@ export const NavToggleClose = styled.div`
   height: 100vh;
   width: 100vw;
   display: none;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px);
   z-index: 100;
   @media (max-width: 767px) {
     display: flex;
@@ -50,9 +53,9 @@ export const NavToggleClose = styled.div`
 export const CloseToggle = styled(FaTimes)`
   position: fixed;
   top: 10%;
-  right: 2%;
+  right: 5%;
   background: transparent;
-  color: #000;
+  color: #F08B23;
   padding: 0.75rem;
   display: flex;
   place-items: center;

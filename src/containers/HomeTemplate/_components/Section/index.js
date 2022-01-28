@@ -5,10 +5,12 @@ import CardMovie from 'containers/HomeTemplate/_components/CardMovie'
 
 import {
   Container,
-  Wrapper
+  Wrapper,
+  SectionTitle,
+  SectionHeader
 } from './_component/SectionStyle';
 
-export default function Section() {
+export default function Section(props) {
   var settings = {
     dots: false,
     infinite: true,
@@ -46,36 +48,42 @@ export default function Section() {
       }
     ]
   };
+  const { width, btnDisabled, headerName } = props;
   return (
-    <Container>
-      <Wrapper>
-        <Slider {...settings}>
-          <div style={{ width: 250 }}>
-            <CardMovie></CardMovie>
-          </div>
-          <div style={{ width: 250 }}>
-            <CardMovie></CardMovie>
-          </div>
-          <div style={{ width: 250 }}>
-            <CardMovie></CardMovie>
-          </div>
-          <div style={{ width: 250 }}>
-            <CardMovie></CardMovie>
-          </div>
-          <div style={{ width: 250 }}>
-            <CardMovie></CardMovie>
-          </div>
-          <div style={{ width: 250 }}>
-            <CardMovie></CardMovie>
-          </div>
-          <div style={{ width: 250 }}>
-            <CardMovie></CardMovie>
-          </div>
-          <div style={{ width: 250 }}>
-            <CardMovie></CardMovie>
-          </div>
-        </Slider>
-      </Wrapper>
-    </Container>
+    <>
+      <SectionTitle>
+        <SectionHeader className={headerName} ></SectionHeader>
+      </SectionTitle>
+      <Container>
+        <Wrapper>
+          <Slider {...settings}>
+            <div style={{ width: width }}>
+              <CardMovie btnDisabled={btnDisabled}></CardMovie>
+            </div>
+            <div style={{ width: width }}>
+              <CardMovie btnDisabled={btnDisabled}></CardMovie>
+            </div>
+            <div style={{ width: width }}>
+              <CardMovie btnDisabled={btnDisabled}></CardMovie>
+            </div>
+            <div style={{ width: width }}>
+              <CardMovie btnDisabled={btnDisabled}></CardMovie>
+            </div>
+            <div style={{ width: width }}>
+              <CardMovie btnDisabled={btnDisabled}></CardMovie>
+            </div>
+            <div style={{ width: width }}>
+              <CardMovie btnDisabled={btnDisabled}></CardMovie>
+            </div>
+            <div style={{ width: width }}>
+              <CardMovie btnDisabled={btnDisabled}></CardMovie>
+            </div>
+            <div style={{ width: width }}>
+              <CardMovie btnDisabled={btnDisabled}></CardMovie>
+            </div>
+          </Slider>
+        </Wrapper>
+      </Container>
+    </>
   );
 }

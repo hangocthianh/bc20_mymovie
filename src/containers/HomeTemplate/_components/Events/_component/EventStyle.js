@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const SectionTitle = styled.div`
+export const EventTitle = styled.div`
   background: url("./img/bg_h3_line.jpg") repeat-x scroll left center rgba(0, 0, 0, 0);
   height: 54px;
   text-align: center;
@@ -37,21 +37,24 @@ export const SectionTitle = styled.div`
   }
 `;
 
-export const SectionHeader = styled.h2`
-  background: no-repeat scroll center center / 365.4px 37px #FDFCF0;
+export const EventHeader = styled.h2`
+  background: url("./img/event-bg.gif") no-repeat scroll center center / 180px 37px #FDFCF0;
   display: inline-block;
-  width: 382.5px;
+  width: 195px;
   height: 54px;
   text-indent: -99999px;
-  &.movie-selection{
-    background-image: url('./img/movie-selection-bg.gif')
-  };
-  &.coming-soon{
-    background-image: url('./img/coming-soon-bg.gif')
-  }
   @media only screen and (max-width:992px){
-    background: no-repeat scroll center center / 271px 27px #FDFCF0;
-    width: 284px;
+    background: url("./img/event-bg.gif") no-repeat scroll center center / 134px 27px #FDFCF0;
+    width: 140px;
     height: 40px;
+  }
+`;
+
+export const EventImg = styled.img`
+  width: 100%;
+`;
+export const EventLink = styled.a`
+  &:hover {
+    opacity: 0.5;
   }
 `;

@@ -11,22 +11,23 @@ import {
   CardBook
 } from './_component/CardMovieStyle';
 
-export default function CardMovie() {
+export default function CardMovie(props) {
+  const {btnDisabled} = props;
   return (
     <Container>
       <CardWrapper className="mx-2">
         <CardImage src="./img/movie1.jpg" alt="#" />
         <CardPlay className="animate__animated animate__fadeIn">
           <div> <AiFillPlayCircle size={25} /></div>
-          Play
+          <span>Play</span>
         </CardPlay>
         <CardFooter className="animate__animated animate__fadeIn">
           <CardTitle>
             Movie Title
           </CardTitle>
           <div className="d-flex justify-content-around">
-            <CardDetails>Xem Chi Tiết</CardDetails>
-            <CardBook>Đặt vé</CardBook>
+            <CardDetails to="#">Xem Chi Tiết</CardDetails>
+            <CardBook disabled={btnDisabled}>Đặt vé</CardBook>
           </div>
         </CardFooter>
       </CardWrapper>
