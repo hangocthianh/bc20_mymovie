@@ -14,16 +14,16 @@ const routeHome = [
   },
   // DetailMovie
   {
-     exact: false,
-     path:"/detail-movie/:id",
-     component: lazy(()=>import("containers/HomeTemplate/DetailMovie"))
-    },
+    exact: false,
+    path: "/detail-movie/:id",
+    component: lazy(() => import("containers/HomeTemplate/DetailMovie"))
+  },
   //BookTicket
-    {
-     exact: false,
-     path:"/book-ticket/:maLichChieu",
-     component: lazy(()=>import("containers/HomeTemplate/BookTicket"))
-    },
+  {
+    exact: false,
+    path: "/book-ticket/:maLichChieu",
+    component: lazy(() => import("containers/HomeTemplate/BookTicket"))
+  },
 ];
 
 const renderRouteHome = () => {

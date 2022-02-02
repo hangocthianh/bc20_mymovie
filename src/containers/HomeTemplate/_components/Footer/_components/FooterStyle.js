@@ -27,7 +27,9 @@ export const Column = styled.div`
   padding: 20px 0;
   width: 100%;
   max-width: 250px;
-  
+  @media (max-width: 460px) {
+    padding-left: 30px;
+  }
 `;
 export const ColumnTitle = styled.h6`
   font-weight: bold;

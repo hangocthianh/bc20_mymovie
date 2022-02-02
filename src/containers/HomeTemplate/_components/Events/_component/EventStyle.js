@@ -52,6 +52,7 @@ export const EventHeader = styled.h2`
 
 export const EventImg = styled.img`
   width: 100%;
+  object-fit: cover;
 `;
 export const EventLink = styled.a`
   &:hover {

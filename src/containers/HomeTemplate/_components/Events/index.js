@@ -90,7 +90,7 @@ export default function Event() {
                 <EventImg 
                   src="./img/special1.jpg" 
                   alt="special1" 
-                  style={{border: '3px solid #000', maxHeight: '200px', minHeight: '80px'}}/>
+                  style={{border: '3px solid #000', maxWidth: '100%'}}/>
               </EventLink>
             </div>
             <div className="col-6 px-2" style={{cursor: 'pointer'}}>
@@ -98,7 +98,7 @@ export default function Event() {
                 <EventImg 
                   src="./img/special3.jpg" 
                   alt="special3" 
-                  style={{border: '3px solid #000', maxHeight: '200px', minHeight: '80px'}}/>
+                  style={{border: '3px solid #000', maxWidth: '100%'}}/>
               </EventLink>
             </div>
             <div className="col-3 px-2" style={{cursor: 'pointer'}}>
@@ -106,7 +106,7 @@ export default function Event() {
                 <EventImg 
                   src="./img/special2.jpg" 
                   alt="special2" 
-                  style={{border: '3px solid #000', maxHeight: '200px', minHeight: '80px'}}/>
+                  style={{border: '3px solid #000', maxWidth: '100%'}}/>
               </EventLink>
             </div>
           </div>

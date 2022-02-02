@@ -14,6 +14,9 @@ export const Container = styled.div`
   display: flex;
   margin: auto;
   align-items: center;
+  @media (max-width: 450px) {
+    width: 87%;
+  };
 `;
 
 export const Logo = styled.h1`
@@ -23,14 +26,14 @@ export const Logo = styled.h1`
   flex-grow: 2;
   margin-bottom: 0!important;
   @media (max-width: 828px) {
-    flex-grow: 2;
     text-align: center;
     font-size: 26px;
-  }
-  @media (max-width: 767px) {
-    flex-grow: 2;
-    text-align: center;
-  }
+  };
+  @media (max-width: 450px) {
+    font-size: 22px;
+    padding-left: 5px;
+    flex-grow: 1;
+  };
 `;
 
 export const NavLeft = styled.ul`
@@ -48,6 +51,10 @@ export const NavRight = styled.ul`
   align-items: center;
   margin: 0!important;
   flex-grow: 1;
+  @media (max-width: 450px) {
+    padding: 0 !important;
+    justify-content: center;
+  }
 `;
 export const NavItem = styled.li`
   list-style-type: none;
@@ -56,11 +63,11 @@ export const NavItem = styled.li`
   @media (max-width: 992px) {
     font-size: 0.72rem;
     margin-left: 18px;
-  }
+  };
   @media (max-width: 828px) {
     font-size: 0.66rem;
     margin-left: 14px;
-  }
+  };
 `;
 
 export const HeaderLink = styled(Link)`

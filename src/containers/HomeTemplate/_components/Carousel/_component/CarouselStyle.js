@@ -8,7 +8,15 @@ export const Container = styled.section`
 
 export const CarouselImg = styled.img`
   width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  height: 550px;
+  over-flow: hidden;
+  @media (max-width: 991px){
+    height: 450px;
+  }
+  @media (max-width: 767px){
+    height: 350px;
+  }
+  @media (max-width: 575px){
+    height: 300px;
+  }
 `
