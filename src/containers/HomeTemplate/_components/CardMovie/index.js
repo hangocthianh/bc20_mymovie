@@ -12,7 +12,7 @@ import {
 } from './_component/CardMovieStyle';
 
 export default function CardMovie(props) {
-  const { btnDisabled, handlePlayButton, movie } = props;
+  const { btnDisabled, handlePlayButton, movie, handleShow } = props;
   // console.log(movie);
   return (
     <Container>
@@ -20,7 +20,8 @@ export default function CardMovie(props) {
         <CardImage src={movie&&movie.hinhAnh} alt="#"/>
         <CardPlay
           className="animate__animated animate__fadeIn"
-          onClick={()=>{handlePlayButton(movie&&movie.trailer, movie&&movie.tenPhim)}}
+          // onClick={()=>{handlePlayButton(movie&&movie.trailer, movie&&movie.tenPhim)}}
+          onClick={()=> {handleShow(movie&&movie.trailer, movie&&movie.tenPhim)}}
           data-toggle="modal" 
           data-target="#exampleModal"
         >

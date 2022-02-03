@@ -17,6 +17,6 @@ export const CarouselImg = styled.img`
     height: 350px;
   }
   @media (max-width: 575px){
-    height: 300px;
+    height: 280px;
   }
 `

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Slider from "react-slick";
 import { useSelector } from 'react-redux';
+import { Modal, Button } from 'react-bootstrap';
+import { IoCloseSharp } from "react-icons/io5";
 
 import CardMovie from 'containers/HomeTemplate/_components/CardMovie'
 
@@ -13,12 +15,20 @@ import {
 
 export default function Section(props) {
   const listMovies = useSelector(state => state.homePageReducer.dataListMovies);
-  // const iframeRef = useRef(1)
+
   const [srcVideo, setSrcVideo] = useState('');
   const [nameVideo, setNameVideo] = useState('');
-  const handlePlayButton = (srcVideo, nameVideo) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setSrcVideo('');
+    setNameVideo('')
+    setShow(false)
+  };
+  const handleShow = (srcVideo, nameVideo) => {
     setSrcVideo(srcVideo);
     setNameVideo(nameVideo)
+    setShow(true)
   };
 
   var settings = {
@@ -26,11 +36,12 @@ export default function Section(props) {
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
-    initialSlide: 0,
+    initialSlide: 1,
     autoplay: false,
-    speed: 1000,
+    speed: 500,
     autoplaySpeed: 5000,
     cssEase: "linear",
+    lazyLoad: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -61,30 +72,36 @@ export default function Section(props) {
   const { width, btnDisabled, headerName } = props;
   return (
     <>
-      {/* <!-- Modal --> */}
-      <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true" >
-        <div className="modal-dialog modal-lg">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">{nameVideo}</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close" >
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              <iframe
-                title={Date.now()}
-                width="100%"
-                height={400}
-                src={srcVideo}
-                frameBorder={0}
-                allowFullScreen
-              >
-              </iframe>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Modal
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        show={show}
+        onHide={handleClose}
+      >
+        <Modal.Header>
+          <Modal.Title id="contained-modal-title-vcenter">
+            {nameVideo}
+          </Modal.Title>
+          <Button
+            variant="secondary"
+            onClick={handleClose}
+            style={{display: 'inherit', alignSelf: 'center'}}
+          ><IoCloseSharp size={20}/>
+          </Button>
+        </Modal.Header>
+        <Modal.Body>
+          <iframe
+            title={Date.now()}
+            width="100%"
+            height={400}
+            src={srcVideo}
+            frameBorder={0}
+            allowFullScreen
+          >
+          </iframe>
+        </Modal.Body>
+      </Modal>
 
       <SectionTitle>
         <SectionHeader className={headerName} ></SectionHeader>
@@ -97,7 +114,7 @@ export default function Section(props) {
                 <div style={{ width: width }} key={index}>
                   <CardMovie
                     btnDisabled={btnDisabled}
-                    handlePlayButton={handlePlayButton}
+                    handleShow={handleShow}
                     movie={movie}
                   >
                   </CardMovie>
