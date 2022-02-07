@@ -6,15 +6,26 @@ import "./style.css";
 import { actFetchBookTicket } from './modules/actions';
 
 export default function BookTicket(props) {
-    
 
     const data = useSelector( state => state.bookTicketReducer.data);
     console.log(data);
+    console.log(data?.danhSachGhe);
     const dispatch = useDispatch();
     useEffect (()=>{
         const { maLichChieu } = props.match.params;
         dispatch(actFetchBookTicket(maLichChieu));
     },[]);
+
+
+
+    const renderSeat=()=>{
+        return data?.danhSachGhe?.map((seat,index)=>{
+            return(
+                    <Seats seat={seat} key={index}/>
+                    
+            )
+        })
+    }
 
     return (
         <div className="bookingTicket">
@@ -26,16 +37,16 @@ export default function BookTicket(props) {
                             <div className="screen mb-5">
                                 <h3>Màn hình</h3>
                             </div>
-                            <Seats />
-                            <Seats />
-                            <Seats />
-                            <Seats />
-                            <Seats />
-                            <Seats />
-                            <div className='mt-5'>
-                                <button className="Button Seat mr-2"></button><span>ghế chưa đặt</span>
-                                <button className="Button CheckedSeat mr-2 ml-5 "></button><span>ghế đang chọn</span>
-                                <button className="Button OccupiedSeat mr-2 ml-5"></button><span>ghế đã đặt</span>
+                            <div>
+                            {renderSeat()}
+                            </div>
+                            
+                            {/* <Seats /> */}
+                            <div className='m-5'>
+                                <button className="Button Seat mr-1"></button><span>ghế thường</span>
+                                <button className="Button SeatVip mr-1 ml-3"></button><span>ghế Vip</span>
+                                <button className="Button CheckedSeat mr-1 ml-3 "></button><span>ghế đang chọn</span>
+                                <button className="Button OccupiedSeat mr-1 ml-3"></button><span>ghế đã đặt</span>
                             </div>
                         </div>
                     </div>
