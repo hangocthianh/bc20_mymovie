@@ -4,7 +4,7 @@ import {CarouselImg} from './_component/CarouselStyle'
 export default function HomeCarousel(props) {
   const dataBanner = useSelector(state => state.homePageReducer.dataBanner);
   return (
-    <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-bs-ride="carousel">
       <ol className="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to={0} className="active" />
         <li data-target="#carouselExampleIndicators" data-slide-to={1} />
