@@ -33,7 +33,7 @@ function ShowtimesMovie(props) {
                                 <div className='row pt-3'>
                                     {cumRap?.lichChieuPhim?.map((lichChieu) => {
                                         return (
-                                            <Link className="h5 col-3 pb-3">{new Date(lichChieu.ngayChieuGioChieu).toLocaleTimeString()}</Link>
+                                            <Link className="h5 col-3 pb-3" to={`/book-ticket/${lichChieu.maLichChieu}`}>{new Date(lichChieu.ngayChieuGioChieu).toLocaleTimeString()}</Link>
                                         )
                                     })}
                                 </div>
