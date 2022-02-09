@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { actFetchDetailMovie } from './modules/actions';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import "./style.css";
 import ShowtimesMovie from "./ShowtimesMovie"
@@ -8,6 +9,7 @@ import ShowtimesMovie from "./ShowtimesMovie"
 function DetailMovie(props) {
     // data Movie
     const data = useSelector(state => state.detailMovieReducer.data);
+    console.log(data)
     const loading = useSelector(state => state.detailMovieReducer.loading);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -54,8 +56,9 @@ function DetailMovie(props) {
                         <p>Điểm đánh giá: {data && data.danhGia}</p>
                         <p>Ngày khởi chiếu: {new Date(data && data.ngayKhoiChieu).toLocaleDateString()}</p>
                         <div className='btnDetail'>
-                            <button className="Button mr-3">ĐẶT VÉ</button>
-                            <button type="button" className="Button" data-toggle="modal" data-target="#trailerModal">TRAILER</button>
+                            {/* <button className="ButtonDetail mr-3">ĐẶT VÉ</button> */}
+                            <button type="button" className="ButtonDetail mr-3" data-toggle="modal" data-target="#bookTicketModal">ĐẶT VÉ</button>
+                            <button type="button" className="ButtonDetail" data-toggle="modal" data-target="#trailerModal">TRAILER</button>
 
                         </div>
                         {/* modal trailer */}
@@ -70,6 +73,23 @@ function DetailMovie(props) {
                                     </div>
                                     <iframe className="modal-body" width="100%" height="350"
                                             src={data && data.trailer} frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {/* modal đặt vé */}
+                        <div className="modal fade" id="bookTicketModal" tabIndex={-1} aria-labelledby="bookTicketModalLabel" aria-hidden="true">
+                            <div className="modal-dialog modal-lg">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="bookTicketModalLabel">Lịch chiếu</h5>
+                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">x</span>
+                                        </button>
+                                    </div>
+                                    <div className="modal-body" width="100%">
+                                    <ShowtimesMovie data={data} />
+                                    </div>
                                 </div>
                             </div>
                         </div>

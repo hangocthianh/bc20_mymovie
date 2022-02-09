@@ -6,7 +6,7 @@ const initialState = {
     error: null,
 };
 
-export default (state = initialState, action) => {
+const bookTicketReducer =(state = initialState, action) => {
   switch (action.type) {
     case ActionType.BOOK_TICKET_REQUEST:{
         state.loading= true;
@@ -30,3 +30,4 @@ export default (state = initialState, action) => {
         return {...state};
   }
 };
+export default bookTicketReducer;

@@ -8,21 +8,17 @@ import { actFetchBookTicket } from './modules/actions';
 export default function BookTicket(props) {
 
     const data = useSelector( state => state.bookTicketReducer.data);
-    console.log(data);
-    console.log(data?.danhSachGhe);
     const dispatch = useDispatch();
     useEffect (()=>{
         const { maLichChieu } = props.match.params;
         dispatch(actFetchBookTicket(maLichChieu));
     },[]);
 
-
-
-    const renderSeat=()=>{
+    // render danh sách ghế
+    const renderSeats=()=>{
         return data?.danhSachGhe?.map((seat,index)=>{
             return(
-                    <Seats seat={seat} key={index}/>
-                    
+                    <Seats seat={seat} key={index}/> 
             )
         })
     }
@@ -38,21 +34,19 @@ export default function BookTicket(props) {
                                 <h3>Màn hình</h3>
                             </div>
                             <div>
-                            {renderSeat()}
+                            {renderSeats()}
                             </div>
-                            
-                            {/* <Seats /> */}
                             <div className='m-5'>
-                                <button className="Button Seat mr-1"></button><span>ghế thường</span>
-                                <button className="Button SeatVip mr-1 ml-3"></button><span>ghế Vip</span>
-                                <button className="Button CheckedSeat mr-1 ml-3 "></button><span>ghế đang chọn</span>
-                                <button className="Button OccupiedSeat mr-1 ml-3"></button><span>ghế đã đặt</span>
+                                <button className="ButtonSeat Seat mr-1"></button><span>ghế thường</span>
+                                <button className="ButtonSeat SeatVip mr-1 ml-3"></button><span>ghế Vip</span>
+                                <button className="ButtonSeat CheckedSeat mr-1 ml-3 "></button><span>ghế đang chọn</span>
+                                <button className="ButtonSeat OccupiedSeat mr-1 ml-3"></button><span>ghế đã đặt</span>
                             </div>
                         </div>
                     </div>
                     <div className="col-5">
                         <p className="h3 text-center">Thông tin vé</p>
-                        <InfoTicket />
+                        <InfoTicket data={data&&data.thongTinPhim} />
                     </div>
                 </div>
             </div>
