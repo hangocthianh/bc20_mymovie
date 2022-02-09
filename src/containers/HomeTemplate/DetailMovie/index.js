@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Modal, Button } from 'react-bootstrap';
+import { IoCloseSharp } from "react-icons/io5";
+
 import { actFetchDetailMovie } from './modules/actions';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import "./style.css";
 import ShowtimesMovie from "./ShowtimesMovie"
@@ -16,6 +18,9 @@ function DetailMovie(props) {
         const { id } = props.match.params;
         (dispatch(actFetchDetailMovie(id)));
     }, []);
+
+    const [showTrailer, setShowTrailer] = useState(false);
+    const [showTimesMovie, setShowTimesMovie] = useState(false);
 
     const ImageMovie = styled.div`
         width: 80%;
@@ -56,43 +61,44 @@ function DetailMovie(props) {
                         <p>Điểm đánh giá: {data && data.danhGia}</p>
                         <p>Ngày khởi chiếu: {new Date(data && data.ngayKhoiChieu).toLocaleDateString()}</p>
                         <div className='btnDetail'>
-                            {/* <button className="ButtonDetail mr-3">ĐẶT VÉ</button> */}
-                            <button type="button" className="ButtonDetail mr-3" data-toggle="modal" data-target="#bookTicketModal">ĐẶT VÉ</button>
-                            <button type="button" className="ButtonDetail" data-toggle="modal" data-target="#trailerModal">TRAILER</button>
-
+                            <button className="ButtonDetail mr-3" variant="primary" onClick={() => setShowTimesMovie(true)}>ĐẶT VÉ</button>
+                            <button className="ButtonDetail" variant="primary" onClick={() => setShowTrailer(true)}>TRAILER</button>
                         </div>
                         {/* modal trailer */}
-                        <div className="modal fade" id="trailerModal" tabIndex={-1} aria-labelledby="trailerModalLabel" aria-hidden="true">
-                            <div className="modal-dialog">
-                                <div className="modal-content">
-                                    <div className="modal-header">
-                                        <h5 className="modal-title" id="trailerModalLabel">Trailer</h5>
-                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">x</span>
-                                        </button>
-                                    </div>
-                                    <iframe className="modal-body" width="100%" height="350"
-                                            src={data && data.trailer} frameborder="0" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                        
+                        <Modal show={showTrailer} onHide={() => setShowTrailer(false)} animation={false} size="lg" centered>
+                            <Modal.Header>
+                                <Modal.Title>{data && data.tenPhim}</Modal.Title>
+                                <Button
+                                    variant="secondary"
+                                    onClick={() => setShowTrailer(false)}
+                                    style={{ display: 'inherit', alignSelf: 'center' }}
+                                ><IoCloseSharp size={20} />
+                                </Button>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <iframe
+                                    width="100%" height="400"
+                                    src={data && data.trailer}
+                                    frameborder="0"
+                                    allowfullscreen>
+                                </iframe>
+                            </Modal.Body>
+                        </Modal>
                         {/* modal đặt vé */}
-                        <div className="modal fade" id="bookTicketModal" tabIndex={-1} aria-labelledby="bookTicketModalLabel" aria-hidden="true">
-                            <div className="modal-dialog modal-lg">
-                                <div className="modal-content">
-                                    <div className="modal-header">
-                                        <h5 className="modal-title" id="bookTicketModalLabel">Lịch chiếu</h5>
-                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">x</span>
-                                        </button>
-                                    </div>
-                                    <div className="modal-body" width="100%">
-                                    <ShowtimesMovie data={data} />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <Modal show={showTimesMovie} onHide={() => setShowTimesMovie(false)} animation={false} size="lg" centered>
+                            <Modal.Header>
+                                <Modal.Title>Lịch chiếu phim: {data && data.tenPhim}</Modal.Title>
+                                <Button
+                                    variant="secondary"
+                                    onClick={() => setShowTimesMovie(false)}
+                                    style={{ display: 'inherit', alignSelf: 'center' }}
+                                ><IoCloseSharp size={20} />
+                                </Button>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <ShowtimesMovie data={data} />
+                            </Modal.Body>
+                        </Modal>
                         <div className='mt-3'>
                             <h3>Lịch chiếu:</h3>
                             <ShowtimesMovie data={data} />
@@ -100,7 +106,6 @@ function DetailMovie(props) {
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
