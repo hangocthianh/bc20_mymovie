@@ -12,18 +12,24 @@ const routeHome = [
     path: '/',
     component: HomePage,
   },
+  // ListMoviePage
+  {
+    exact: true,
+    path: '/list-movie-page',
+    component: lazy(() => import("containers/HomeTemplate/ListMoviePage"))
+  },
   // DetailMovie
   {
-     exact: false,
-     path:"/detail-movie/:id",
-     component: lazy(()=>import("containers/HomeTemplate/DetailMovie"))
-    },
+    exact: false,
+    path: "/detail-movie/:id",
+    component: lazy(() => import("containers/HomeTemplate/DetailMovie"))
+  },
   //BookTicket
-    {
-     exact: false,
-     path:"/book-ticket/:maLichChieu",
-     component: lazy(()=>import("containers/HomeTemplate/BookTicket"))
-    },
+  {
+    exact: false,
+    path: "/book-ticket/:maLichChieu",
+    component: lazy(() => import("containers/HomeTemplate/BookTicket"))
+  },
 ];
 
 const renderRouteHome = () => {

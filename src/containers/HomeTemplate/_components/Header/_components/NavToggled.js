@@ -72,5 +72,8 @@ export const NavToggleOpen = styled(FaBars)`
   @media (max-width: 767px) {
     display: flex;
     place-items: center;
-  }
+  };
+  @media (max-width: 450px) {
+    font-size: 1.4rem;
+  };
 `;

@@ -12,7 +12,17 @@ export const CardWrapper = styled.div`
 
 export const CardImage = styled.img`
   width: 100%;
+  height: 350px;
   border-radius: 5px;
+  @media (max-width: 991px) {
+    height: 300px;
+  };
+  @media (max-width: 767px) {
+    height: 260px;
+  };
+  @media (max-width: 480px) {
+    height: 360px;
+  };
 `;
 export const CardTitle = styled.h6`
   color: #ffffff;
@@ -22,6 +32,10 @@ export const CardTitle = styled.h6`
   font-size: 1rem;
   @media (max-width: 768px) {
     font-size: 0.8rem;
+    margin-bottom: 10px;
+  };
+  @media (max-width: 480px) {
+    font-size: 1rem;
     margin-bottom: 10px;
   }
 `;
@@ -62,9 +76,13 @@ export const CardPlay = styled.button`
     top: 40%;
   };
   @media (max-width: 768px) {
-    padding: 5px 10px;
+    padding: 3px 10px;
+  };
+  @media (max-width: 480px) {
+    top: 45%;
+    padding: 5px 12px;
     span{
-      display: none;
+      display: block;
     }
   };
 `;
@@ -81,8 +99,12 @@ export const CardDetails = styled(Link)`
     color: #ffffff;
   };
   @media (max-width: 768px) {
-    font-size: 0.7rem;
-    padding: 4px 8px;
+    font-size: 0.68rem;
+    padding: 3px 6px;
+  };
+  @media (max-width: 480px) {
+    padding: 5px 10px;
+    font-size: 0.8rem;
   };
 `;
 
@@ -98,7 +120,11 @@ export const CardBook = styled.button`
     cursor: no-drop;
   };
   @media (max-width: 768px) {
-    font-size: 0.7rem;
-    padding: 4px 8px;
-  }
+    font-size: 0.68rem;
+    padding: 3px 6px;
+  };
+  @media (max-width: 480px) {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  };
 `;
