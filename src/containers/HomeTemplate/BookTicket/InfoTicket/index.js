@@ -1,19 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-
+import { Modal, Button } from 'react-bootstrap';
+import { IoCloseSharp } from "react-icons/io5";
 import '../style.css';
+
+import LoginModal from 'containers/HomeTemplate/_components/Header/_components/LoginModal';
+import RegisterModal from 'containers/HomeTemplate/_components/Header/_components/RegisterModal';
 
 export default function InfoTicket(props) {
     const { data } = props;
     const listCheckedSeat = useSelector(state => state.checkedSeatReducer.listCheckedSeat);
     console.log(listCheckedSeat);
 
-    // thông báo đăt vé
+    // Login Modal Toggle
+    const [showLogin, setShowLogin] = useState(false);
+    const handleShowLoginModal = () => setShowLogin(true);
+    const handleCloseLoginModal = () => setShowLogin(false);
+
+    // Register Modal Toggle
+    const [showRegisterModal, setShowRegisterModal] = useState(false);
+    const handleShowRegisterModal = () => setShowRegisterModal(true);
+    const handleCloseRegisterModal = () => setShowRegisterModal(false);
+
+    //Modal choose seat
+    const [showChooseSeat, setShowChooseSeat] = useState(false);
+    const handleShowChooseSeat = () => setShowChooseSeat(true);
+
+    //thông báo đăt vé
     const notiBookTicket = () => {
         if (listCheckedSeat.length !== 0) {
-            alert("ĐẶT VÉ THÀNH CÔNG")
+            if (localStorage.getItem("UserAdmin")) {
+                handleShowLoginModal();
+            } else {
+                handleShowRegisterModal();
+            }
         } else {
-            alert("Hãy chọn ghế!")
+            handleShowChooseSeat();
         }
     }
     return (
@@ -59,6 +81,25 @@ export default function InfoTicket(props) {
                         notiBookTicket()
                     }}
                 >Đặt vé</button>
+                <LoginModal showLogin={showLogin} handleCloseLoginModal={handleCloseLoginModal} />
+                <RegisterModal showRegisterModal={showRegisterModal} handleCloseRegisterModal={handleCloseRegisterModal} />
+                {/* modal choose seat*/}
+                <Modal show={showChooseSeat} onHide={() => setShowChooseSeat(false)} animation={false}>
+                    <Modal.Header>
+                        <Modal.Title></Modal.Title>
+                        <Button
+                            variant="secondary"
+                            onClick={() => setShowChooseSeat(false)}
+                            style={{ display: 'inherit', alignSelf: 'center' }}
+                        ><IoCloseSharp size={20} />
+                        </Button>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div class="alert alert-danger mt-2" role="alert">
+                            <strong>HÃY CHỌN GHẾ!</strong>
+                        </div>
+                    </Modal.Body>
+                </Modal>
             </div>
         </div>
     );
