@@ -3,7 +3,8 @@ import React, { Suspense } from "react";
 import './App.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 //import components
-import { renderRouteHome } from './routes'
+import { renderRouteHome } from './routes';
+import PageNotFound from "containers/PageNotFound";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           {renderRouteHome()}
+          <Route path="" component={PageNotFound} />
         </Switch>
       </BrowserRouter>
     </Suspense>

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export const Box = styled.header`
   background-color: #000;
@@ -14,7 +14,7 @@ export const Container = styled.div`
   display: flex;
   margin: auto;
   align-items: center;
-  @media (max-width: 828px) {
+  @media (max-width: 835px) {
     width: 87%;
   };
 `;
@@ -29,7 +29,7 @@ export const Logo = styled(Link)`
   &:hover{
     color: #F08B23;
   }
-  @media (max-width: 828px) {
+  @media (max-width: 835px) {
     text-align: left;
     margin-left: 20px;
     font-size: 26px;
@@ -82,19 +82,28 @@ export const NavRight = styled.ul`
 `;
 export const NavItem = styled.li`
   list-style-type: none;
-  margin-left: 40px;
-  font-size: 13px;
+  margin-left: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
   padding-top: 3px;
+  .active {
+    color: #000000;
+    background-color: #F08B23;
+    border-radius: 3px;
+    &:hover{
+      color: #000000;
+    }
+  }
   @media (max-width: 991px) {
-    font-size: 0.8rem;
-    margin-left: 20px;
+    font-size: 0.78rem;
+    margin-left: 10px;
   };
-  @media (max-width: 828px) {
-    margin-left: 18px;
+  @media (max-width: 835px) {
+    margin-left: 5px;
   };
 `;
 
-export const HeaderLink = styled(Link)`
+export const HeaderLink = styled(NavLink)`
   text-decoration: none!important;
   color: #ffffff;
   &:hover{

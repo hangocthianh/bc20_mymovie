@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { useSelector } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
 import { IoCloseSharp } from "react-icons/io5";
+// import Swal from 'sweetalert2';
 
 import CardMovie from 'containers/HomeTemplate/_components/CardMovie'
 
@@ -70,6 +71,14 @@ export default function Section(props) {
     ]
   };
   const { width, btnDisabled, headerName } = props;
+  // // Handle sweetalert
+  // const alertRegister = () => {
+  //   Swal.fire({
+  //     icon: 'warning',
+  //     title: 'Vui lòng đăng nhập',
+  //     confirmButtonText: 'OK'
+  //   })
+  // }
   return (
     <>
       <Modal
@@ -104,7 +113,7 @@ export default function Section(props) {
       </Modal>
 
       <SectionTitle>
-        <SectionHeader className={headerName} ></SectionHeader>
+        <SectionHeader className={headerName} >PHIM ĐỀ XUẤT</SectionHeader>
       </SectionTitle>
       <Container>
         <Wrapper>
@@ -116,6 +125,7 @@ export default function Section(props) {
                     btnDisabled={btnDisabled}
                     handleShow={handleShow}
                     movie={movie}
+                    // alert={alertRegister}
                   >
                   </CardMovie>
                 </div>

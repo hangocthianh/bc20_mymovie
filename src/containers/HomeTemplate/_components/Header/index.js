@@ -49,7 +49,7 @@ function Header() {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => setAnchorEl(null);
-  
+
   // Handle sweetalert2
   const alertRegister = () => {
     Swal.fire({
@@ -71,22 +71,22 @@ function Header() {
           </Logo>
           <NavLeft>
             <NavItem>
-              <HeaderLink to="#">
+              <HeaderLink activeClassName="active" className="nav-link" to="/list-movie-page">
                 PHIM
               </HeaderLink>
             </NavItem>
             <NavItem>
-              <HeaderLink to="#">
+              <HeaderLink activeClassName="active" className="nav-link" to="/1">
                 THÔNG TIN RẠP
               </HeaderLink>
             </NavItem>
             <NavItem>
-              <HeaderLink to="#">
+              <HeaderLink activeClassName="active" className="nav-link" to="/2">
                 THÀNH VIÊN
               </HeaderLink>
             </NavItem>
             <NavItem>
-              <HeaderLink to="#">
+              <HeaderLink activeClassName="active" className="nav-link" to="/3">
                 KHUYẾN MÃI
               </HeaderLink>
             </NavItem>

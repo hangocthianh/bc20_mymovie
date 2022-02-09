@@ -12,6 +12,12 @@ const routeHome = [
     path: '/',
     component: HomePage,
   },
+  // ListMoviePage
+  {
+    exact: true,
+    path: '/list-movie-page',
+    component: lazy(() => import("containers/HomeTemplate/ListMoviePage"))
+  },
   // DetailMovie
   {
     exact: false,
