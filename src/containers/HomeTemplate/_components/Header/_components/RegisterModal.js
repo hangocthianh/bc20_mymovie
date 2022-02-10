@@ -46,6 +46,10 @@ export default function RegisterModal(props) {
       }
       case 'email': {
         emailValid = message === "" ? true : false;
+        if (value && !value.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+          emailValid = false;
+          message = "Email không hợp lệ";
+        }
         break;
       }
       case 'soDt': {
@@ -121,7 +125,7 @@ export default function RegisterModal(props) {
               />
               {state.errors.hoTen && (
                 <Alert variant="danger">
-                  Vui lòng nhập họ tên
+                  {state.errors.hoTen}
                 </Alert>
               )}
             </Form.Group>
@@ -135,21 +139,21 @@ export default function RegisterModal(props) {
               />
               {state.errors.email && (
                 <Alert variant="danger">
-                  Vui lòng nhập email
+                  {state.errors.email}
                 </Alert>
               )}
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Số điện thoại</Form.Label>
               <Form.Control
-                type="tel"
+                type="number"
                 name="soDt"
                 placeholder="nhập số điện thoại ..."
                 onBlur={handleError}
               />
               {state.errors.soDt && (
                 <Alert variant="danger">
-                  Vui lòng nhập số điện thoại
+                  {state.errors.soDt}
                 </Alert>
               )}
             </Form.Group>
@@ -163,7 +167,7 @@ export default function RegisterModal(props) {
               />
               {state.errors.taiKhoan && (
                 <Alert variant="danger">
-                  Vui lòng nhập tài khoản
+                  {state.errors.taiKhoan}
                 </Alert>
               )}
             </Form.Group>
@@ -177,7 +181,7 @@ export default function RegisterModal(props) {
               />
               {state.errors.matKhau && (
                 <Alert variant="danger">
-                  Vui lòng nhập mật khẩu
+                  {state.errors.matKhau}
                 </Alert>
               )}
             </Form.Group>
