@@ -9,8 +9,6 @@ import "./style.css";
 import { actFetchBookingList } from './modules/actions';
 import { actBookTicket } from './modules/actions';
 import Loading from 'components/Loading';
-
-
 import LoginModal from '../_components/Header/_components/LoginModal';
 
 export default function BookTicket(props) {

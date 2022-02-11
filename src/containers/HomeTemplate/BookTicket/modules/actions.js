@@ -49,9 +49,6 @@ export const actBookTicket = (ticket) => {
             api
                 .post('QuanLyDatVe/DatVe',ticket)
                 .then((result) => {
-                    console.log(result);
-                    localStorage.setItem("UserLogin", JSON.stringify(result.data));
-
                     dispatch(actBookTicketSuccess(result.data.content))
                 })
                 .catch((error) => {

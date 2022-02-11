@@ -5,6 +5,8 @@ import { lazy } from "react";
 //import components
 import HomeTemplate from 'containers/HomeTemplate';
 import HomePage from 'containers/HomeTemplate/HomePage';
+import AdminTemplate from 'containers/AdminTemplate';
+import DashBoard from 'containers/AdminTemplate/Dashboard';
 const routeHome = [
   //Home page
   {
@@ -32,6 +34,22 @@ const routeHome = [
   },
 ];
 
+const routeAdmin = [
+  //DashBoard
+  {
+    exact: true,
+    path: '/dashboard',
+    component: DashBoard,
+  },
+  //MovieManager
+  {
+    exact: false,
+    path: "/movie-manager",
+    component: lazy(() => import("containers/AdminTemplate/MovieManager"))
+  },
+
+];
+
 const renderRouteHome = () => {
   return routeHome.map((route, index) => {
     return (
@@ -44,5 +62,17 @@ const renderRouteHome = () => {
     );
   });
 };
+const renderRouteAdmin = () => {
+  return routeAdmin.map((route, index) => {
+    return (
+      <AdminTemplate
+        key={index}
+        exact={route.exact}
+        path={route.path}
+        component={route.component}
+      />
+    );
+  });
+};
 
-export { renderRouteHome }
+export { renderRouteHome, renderRouteAdmin }
