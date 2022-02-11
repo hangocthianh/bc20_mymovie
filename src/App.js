@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 //import components
 import { renderRouteHome, renderRouteAdmin } from './routes';
 import PageNotFound from "containers/PageNotFound";
-import AuthPage from "containers/AdminTemplate/AuthPage";
+import AdminLogin from "containers/AdminTemplate/AdminLogin";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Switch>
           {renderRouteHome()}
           {renderRouteAdmin()}
-          <Route path="/auth" component={AuthPage} />
+          <Route path="/auth" component={AdminLogin} />
           <Route path="" component={PageNotFound} />
         </Switch>
       </BrowserRouter>

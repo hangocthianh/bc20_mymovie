@@ -5,14 +5,15 @@ import bookTicketReducer from "../containers/HomeTemplate/BookTicket/modules/red
 import checkedSeatReducer from "../containers/HomeTemplate/BookTicket/Seats/modules/reducer";
 import homePageReducer from "../containers/HomeTemplate/HomePage/modules/reducer";
 import headerReducer from "../containers/HomeTemplate/_components/Header/modules/reducer";
-
+import adminLoginReducer from "../containers/AdminTemplate/AdminLogin/modules/reducer";
 
 const rootReducer = combineReducers({
   detailMovieReducer,
   bookTicketReducer,
   checkedSeatReducer,
   homePageReducer,
-  headerReducer
+  headerReducer,
+  adminLoginReducer,
 })
 
 export default rootReducer
