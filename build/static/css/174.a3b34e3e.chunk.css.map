@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/174.a3b34e3e.chunk.css","mappings":"AAAA,WAEI,WAAY,CACZ,iBAAkB,CAFlB,WAGJ","sources":["containers/AdminTemplate/MovieManager/style.css"],"sourcesContent":[".descMovie{\n    width: 300px;\n    height: 90px;\n    overflow-y: scroll;\n}"],"names":[],"sourceRoot":""}

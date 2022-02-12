@@ -3,6 +3,7 @@ import EditMovieModal from '../EditMovieModal';
 
 export default function Movie(props) {
   const { movie } = props;
+  console.log('movie',movie)
   // Modal Edit Movie
   const [showEditMovieModal, setShowEditMovieModal] = useState(false);
   const handleShowEditMovieModal = () => setShowEditMovieModal(true);

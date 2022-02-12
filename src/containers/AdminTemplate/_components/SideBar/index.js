@@ -13,7 +13,7 @@ export default function Sidebar() {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink activeClassName="active" className="nav-link" to="/movie-list">
+            <NavLink activeClassName="active" className="nav-link" to="/movie-manager">
               <i className="fa fa-film mr-1" />
               Movies List
             </NavLink>

@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/397.161c1ac2.chunk.js","mappings":"uLAEe,SAASA,EAAcC,GACpC,OACE","sources":["containers/HomeTemplate/ListMoviePage/index.js"],"sourcesContent":["import React from 'react';\n\nexport default function ListMoviePage(props) {\n  return (\n    <h1>ListMoviePage</h1>\n  );\n}\n"],"names":["ListMoviePage","props"],"sourceRoot":""}
