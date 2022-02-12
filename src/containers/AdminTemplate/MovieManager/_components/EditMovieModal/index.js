@@ -1,19 +1,28 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import React, {useState, useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
 import { IoCloseSharp } from "react-icons/io5";
 import { useFormik } from "formik";
 import Checkbox from '@mui/material/Checkbox';
-import { actAddMovie } from '../../modules/actions';
-import moment from "moment";
+import { actFetchInfoMovie } from '../../modules/actions';
+import moment from "moment"
 
-export default function AddMovieModal(props) {
+export default function EditMovieModal(props) {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     const [imgFile, setImgFile] = useState('')
+    const { showEditMovieModal, handleCloseEditMovieModal } = props;
 
-    const { showAddMovieModal, handleCloseAddMovieModal } = props;
 
+    const data = useSelector(state => state.movieManagerReducer.dataInfoMovie);
+    // console.log(data)
+    const loading = useSelector(state => state.movieManagerReducer.loadingInfoMovie);
+    const error = useSelector(state => state.movieManagerReducer.errorInfoMovie);    
     const dispatch = useDispatch();
+    useEffect(() => {
+        const {id}=props;
+        console.log(id);
+        (dispatch(actFetchInfoMovie(id)));
+    }, []);
 
     const formik = useFormik({
         initialValues: {
@@ -38,7 +47,7 @@ export default function AddMovieModal(props) {
                     formData.append('File', values.hinhAnh, values.hinhAnh.name)
                 }
             }
-            dispatch(actAddMovie(formData));
+            
 
 
         },
@@ -50,6 +59,7 @@ export default function AddMovieModal(props) {
         //     }
         // }
     })
+
 
     const handleChangeDate =()=>{
         let date=new Date(document.getElementById("date").value);
@@ -77,116 +87,15 @@ export default function AddMovieModal(props) {
         }
     }
 
+  return (
 
-    // const [state, setState] = useState({
-    //     values: {
-    //         tenPhim: "",
-    //         trailer: "",
-    //         hinhAnh: "",
-    //         moTa: "",
-    //         maNhom: "GP01",
-    //         ngayKhoiChieu: "",
-    //         danhGia: "",
-    //         hot: "",
-    //         dangChieu: "",
-    //         sapChieu: "",
-    //     },
-    //     errors: {
-    //         tenPhim: "",
-    //         trailer: "",
-    //         hinhAnh: "",
-    //         moTa: "",
-    //         ngayKhoiChieu: "",
-    //         danhGia: "",
-    //         hot: "",
-    //         dangChieu: "",
-    //         sapChieu: "",
-    //     },
-    //     formValid: false,
-    //     nameValid: false,
-    //     trailerValid: false,
-    //     imgValid: false,
-    //     descValid: false,
-    //     dateValid: false,
-    //     scoreValid: false,
-    //     hotValid: false,
-    //     nowShowingValid: false,
-    //     comingSoonValid: false,
-    // });
-
-    // const handleOnChange = (event) => {
-    //     const { name, value } = event.target;
-    //     setState(
-    //         {
-    //             values: { ...state.values, [name]: value },
-    //         })
-    //     console.log(state)
-    // }
-
-    // const handleError = (event) => {
-    //     const { name, value } = event.target;
-    //     let mess = (value.trim() === "") ? `Vui lòng nhập ${name}` : "";
-    //     let { nameValid, trailerValid, imgValid, descValid, dateValid, scoreValid, hotValid, nowShowingValid, comingSoonValid } = state;
-    //     switch (name) {
-    //         case 'nameMovie': {
-    //             nameValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'trailer': {
-    //             trailerValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'desc': {
-    //             descValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'date': {
-    //             dateValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'score': {
-    //             scoreValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'date': {
-    //             dateValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'date': {
-    //             dateValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'date': {
-    //             dateValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         default: break;
-    //     }
-    //     setState({
-    //         values: { ...state.values, [name]: value },
-    //         errors: { ...state.errors, [name]: mess },
-    //         nameValid,
-    //         trailerValid,
-    //         imgValid,
-    //         descValid,
-    //         dateValid,
-    //         scoreValid,
-    //         hotValid,
-    //         nowShowingValid,
-    //         comingSoonValid,
-    //         formValid: nameValid && trailerValid && imgValid && descValid && dateValid && scoreValid && hotValid && nowShowingValid && comingSoonValid
-    //     })
-    // }
-
-
-    return (
-        <Modal size="lg" show={showAddMovieModal} onHide={handleCloseAddMovieModal} animation={false}>
+    <Modal size="lg" show={showEditMovieModal} onHide={handleCloseEditMovieModal} animation={false}>
             <form onSubmit={formik.handleSubmit} className="needs-validation" id="movieForm">
                 <Modal.Header>
-                    <Modal.Title>Thêm phim</Modal.Title>
+                    <Modal.Title>Chỉnh sửa thông tin</Modal.Title>
                     <Button
                         variant="secondary"
-                        onClick={handleCloseAddMovieModal}
+                        onClick={handleCloseEditMovieModal}
                         style={{ display: 'inherit', alignSelf: 'center' }}
                     ><IoCloseSharp size={20} />
                     </Button>
@@ -269,16 +178,10 @@ export default function AddMovieModal(props) {
                 </Modal.Body>
                 <Modal.Footer>
                     <div>
-                        {/* <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-warning" id="btnCapNhat">Cập Nhật</button> */}
-                        <button type="submit" className="btn btn-warning" id="btnAddMovie">Thêm</button>
+                        <button type="submit" className="btn btn-warning" id="btnAddMovie">Cập nhật</button>
                     </div>
                 </Modal.Footer>
             </form>
         </Modal>
-
-    )
+  )
 }
-
-
-

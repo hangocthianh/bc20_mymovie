@@ -4,11 +4,13 @@ import { NavLink } from 'react-router-dom'
 import { actFetchMovieList } from './modules/actions'
 import "./style.css"
 import AddMovieModal from "./_components/AddMovieModal"
+import Movie from './_components/Movie'
 
 
 export default function MovieManager() {
 
-    const data = useSelector(state => state.movieListReducer.data);
+    const data = useSelector(state => state.movieManagerReducer.data);
+
     const dispatch = useDispatch();
     useEffect(() => {
         (dispatch(actFetchMovieList()));
@@ -22,21 +24,7 @@ export default function MovieManager() {
     const renderMovieList = () => {
         return data?.map((movie, index) => {
             return (
-                <tr key={index} className='text-center mt-5 listMovie'>
-                    <td>{index + 1}</td>
-                    <td>{movie.maPhim}</td>
-                    <td>{movie.tenPhim}</td>
-                    <td >
-                        <img className='w-25' src={movie.hinhAnh} alt={movie.hinhAnh} />
-                    </td>
-                    <td >
-                        <p className='descMovie'>{movie.moTa}</p>
-                    </td>
-                    <td className='w-25'>
-                        <button className='btn btn-info mr-3 mt-1'>Edit</button>
-                        <button className='btn btn-danger mt-1'>Delete</button>
-                    </td>
-                </tr>
+                <Movie movie={movie} key={index}/>
             )
         })
     }
@@ -86,8 +74,8 @@ export default function MovieManager() {
                     </div>
                     <div className="col-4">
                         <div className="form-group row">
-                            {/* <label htmlFor="tenPhim" className="col-sm-2 col-form-label">Show</label> */}
-                            <div className="col-sm-10">
+                            <label htmlFor="tenPhim" className=" col-form-label">Tìm kiếm</label>
+                            <div className="col-sm-9">
                                 <div className="input-group">
                                     <input type="text" className="form-control" placeholder="Tên phim" id="searchName" />
                                     <div className="input-group-prepend">
@@ -102,7 +90,6 @@ export default function MovieManager() {
                     <table className="table table-striped table-sm">
                         <thead>
                             <tr className="bg-warning text-white text-center">
-                                <th>STT</th>
                                 <th>Mã</th>
                                 <th>Tên phim</th>
                                 <th>Hình ảnh</th>

@@ -4,7 +4,7 @@ import detailMovieReducer from "../containers/HomeTemplate/DetailMovie/modules/r
 import bookTicketReducer from "../containers/HomeTemplate/BookTicket/modules/reducer"
 import homePageReducer from "../containers/HomeTemplate/HomePage/modules/reducer";
 import headerReducer from "../containers/HomeTemplate/_components/Header/modules/reducer";
-import movieListReducer from 'containers/AdminTemplate/MovieManager/modules/reducer';
+import movieManagerReducer from 'containers/AdminTemplate/MovieManager/modules/reducer';
 
 
 const rootReducer = combineReducers({
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   bookTicketReducer,
   homePageReducer,
   headerReducer,
-  movieListReducer,
+  movieManagerReducer,
 })
 
 export default rootReducer
