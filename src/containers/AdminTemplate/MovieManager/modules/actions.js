@@ -12,6 +12,7 @@ export const actFetchMovieList = ()=>{
             })
             .catch((error)=>{
                 dispatch(actMovieListFailed(error))
+                console.log(error)
             })
     }
 }
