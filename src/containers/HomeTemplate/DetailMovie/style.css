@@ -1,11 +1,8 @@
-.DetailMovie {
+.detailMovie {
     color: #000;
 }
 .Movie {
     padding-top: 50px;
-}
-.DetailMovie .trailerMovie {
-    border: 0;
 }
 
 .logoTheater img {
@@ -14,24 +11,21 @@
 .logoRap {
     width: 80px;
 }
-#trailerModal .modal-body {
-    padding: 0;
-}
-
-.ButtonDetail {
+.buttonDetail {
     border-radius: 5px;
-    font-size: 1.1rem;
-    padding: 0.5rem 5rem;
+    font-size: 18px;
+    padding: 10px 55px;
     color: #000;
-    border: solid 3px transparent;
+    border: solid 2px transparent;
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
         linear-gradient(100deg, #d15116, #f7941e, #eec42a);
     background-origin: border-box;
     background-clip: content-box, border-box;
     box-shadow: 2px 1000px 1px #fff inset;
 }
-.btnDetail .Button:hover{
+.buttonDetail:hover{
     text-shadow:0 0 30px #000;
     color: #fff;
-    box-shadow: 5px 5px 16px 10px rgba(238, 195, 42, 0.205);
+    font-weight: 700;
+    box-shadow: 5px 5px 16px 10px rgba(255, 236, 169, 0.205);
 }
