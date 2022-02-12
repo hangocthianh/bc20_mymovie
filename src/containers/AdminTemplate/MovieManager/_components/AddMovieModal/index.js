@@ -39,16 +39,7 @@ export default function AddMovieModal(props) {
                 }
             }
             dispatch(actAddMovie(formData));
-
-
         },
-        // validate: (values) => {
-        //     let errors = {}
-        //     if (values.tenPhim.length === 0) {
-        //         errors.tenPhim = "Vui lòng nhập tên phim";
-        //         console.log(errors.tenPhim)
-        //     }
-        // }
     })
 
     const handleChangeDate =()=>{
@@ -76,108 +67,6 @@ export default function AddMovieModal(props) {
             formik.setFieldValue('hinhAnh', file)
         }
     }
-
-
-    // const [state, setState] = useState({
-    //     values: {
-    //         tenPhim: "",
-    //         trailer: "",
-    //         hinhAnh: "",
-    //         moTa: "",
-    //         maNhom: "GP01",
-    //         ngayKhoiChieu: "",
-    //         danhGia: "",
-    //         hot: "",
-    //         dangChieu: "",
-    //         sapChieu: "",
-    //     },
-    //     errors: {
-    //         tenPhim: "",
-    //         trailer: "",
-    //         hinhAnh: "",
-    //         moTa: "",
-    //         ngayKhoiChieu: "",
-    //         danhGia: "",
-    //         hot: "",
-    //         dangChieu: "",
-    //         sapChieu: "",
-    //     },
-    //     formValid: false,
-    //     nameValid: false,
-    //     trailerValid: false,
-    //     imgValid: false,
-    //     descValid: false,
-    //     dateValid: false,
-    //     scoreValid: false,
-    //     hotValid: false,
-    //     nowShowingValid: false,
-    //     comingSoonValid: false,
-    // });
-
-    // const handleOnChange = (event) => {
-    //     const { name, value } = event.target;
-    //     setState(
-    //         {
-    //             values: { ...state.values, [name]: value },
-    //         })
-    //     console.log(state)
-    // }
-
-    // const handleError = (event) => {
-    //     const { name, value } = event.target;
-    //     let mess = (value.trim() === "") ? `Vui lòng nhập ${name}` : "";
-    //     let { nameValid, trailerValid, imgValid, descValid, dateValid, scoreValid, hotValid, nowShowingValid, comingSoonValid } = state;
-    //     switch (name) {
-    //         case 'nameMovie': {
-    //             nameValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'trailer': {
-    //             trailerValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'desc': {
-    //             descValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'date': {
-    //             dateValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'score': {
-    //             scoreValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'date': {
-    //             dateValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'date': {
-    //             dateValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         case 'date': {
-    //             dateValid = mess === "" ? true : false;
-    //             break;
-    //         }
-    //         default: break;
-    //     }
-    //     setState({
-    //         values: { ...state.values, [name]: value },
-    //         errors: { ...state.errors, [name]: mess },
-    //         nameValid,
-    //         trailerValid,
-    //         imgValid,
-    //         descValid,
-    //         dateValid,
-    //         scoreValid,
-    //         hotValid,
-    //         nowShowingValid,
-    //         comingSoonValid,
-    //         formValid: nameValid && trailerValid && imgValid && descValid && dateValid && scoreValid && hotValid && nowShowingValid && comingSoonValid
-    //     })
-    // }
-
 
     return (
         <Modal size="lg" show={showAddMovieModal} onHide={handleCloseAddMovieModal} animation={false}>

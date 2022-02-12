@@ -47,7 +47,12 @@ const routeAdmin = [
     path: "/movie-manager",
     component: lazy(() => import("containers/AdminTemplate/MovieManager"))
   },
-
+  //UserManagement
+  {
+    exact: false,
+    path: '/user-management',
+    component: lazy(() => import("containers/AdminTemplate/UserManagement"))
+  }
 ];
 
 const renderRouteHome = () => {
