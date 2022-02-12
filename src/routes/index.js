@@ -41,6 +41,12 @@ const routeAdmin = [
     path: '/dashboard',
     component: DashBoard,
   },
+  //UserManagement
+  {
+    exact: false,
+    path: '/user-management',
+    component: lazy(() => import("containers/AdminTemplate/UserManagement"))
+  }
 
 ];
 
