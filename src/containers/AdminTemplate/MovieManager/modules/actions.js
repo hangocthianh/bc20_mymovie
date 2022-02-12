@@ -75,7 +75,6 @@ export const actFetchInfoMovie = (maPhim)=>{
             .get(`QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`)
             .then((result)=>{
                 dispatch(actInfoMovieSuccess(result.data.content))
-                console.log(result.data.content)
             })
             .catch((error)=>{
                 dispatch(actInfoMovieFailed(error))

@@ -12,9 +12,7 @@ export default function EditMovieModal(props) {
     const [imgFile, setImgFile] = useState('')
     const { showEditMovieModal, handleCloseEditMovieModal } = props;
 
-
     const data = useSelector(state => state.movieManagerReducer.dataInfoMovie);
-    // console.log(data)
     const loading = useSelector(state => state.movieManagerReducer.loadingInfoMovie);
     const error = useSelector(state => state.movieManagerReducer.errorInfoMovie);    
     const dispatch = useDispatch();
@@ -47,17 +45,7 @@ export default function EditMovieModal(props) {
                     formData.append('File', values.hinhAnh, values.hinhAnh.name)
                 }
             }
-            
-
-
         },
-        // validate: (values) => {
-        //     let errors = {}
-        //     if (values.tenPhim.length === 0) {
-        //         errors.tenPhim = "Vui lòng nhập tên phim";
-        //         console.log(errors.tenPhim)
-        //     }
-        // }
     })
 
 
@@ -88,7 +76,6 @@ export default function EditMovieModal(props) {
     }
 
   return (
-
     <Modal size="lg" show={showEditMovieModal} onHide={handleCloseEditMovieModal} animation={false}>
             <form onSubmit={formik.handleSubmit} className="needs-validation" id="movieForm">
                 <Modal.Header>
@@ -106,9 +93,7 @@ export default function EditMovieModal(props) {
                             <label htmlFor="nameMovie">Tên phim</label>
                             <input type="text" className="form-control" id="nameMovie" name="tenPhim" placeholder="Nhập tên phim" onChange={formik.handleChange}
                             />
-                            {/* {formik.errors.tenPhim ? <div id="invalidName" className="invalid-form">{formik.errors.tenPhim}
-                            </div> : null} */}
-
+                            <div id="invalidName" className="invalid-form"></div>
                         </div>
                         <div className="col-12 mb-3">
                             <label htmlFor="trailer">Trailer</label>
