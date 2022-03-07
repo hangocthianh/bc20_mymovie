@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import EditMovieModal from '../EditMovieModal';
+import { actFetchInfoMovie } from '../../modules/actions';
 
 export default function Movie(props) {
   const { movie } = props;
-  console.log('movie',movie)
   // Modal Edit Movie
+  const dispatch = useDispatch();
   const [showEditMovieModal, setShowEditMovieModal] = useState(false);
   const handleShowEditMovieModal = () => setShowEditMovieModal(true);
   const handleCloseEditMovieModal = () => setShowEditMovieModal(false);
 
+  // useEffect(() => {
+  //   (dispatch(actFetchInfoMovie(movie.maPhim)));
+  // }, []);
   return (
     <tr className='text-center mt-5 listMovie'>
       <td>{movie.maPhim}</td>
@@ -20,10 +25,12 @@ export default function Movie(props) {
         <p className='descMovie'>{movie.moTa}</p>
       </td>
       <td className='w-25'>
-        <button className='btn btn-info mr-3 mt-1' onClick={()=>{
+        <button className='btn btn-info mr-3 mt-1' onClick={() => {
+          
+          dispatch(actFetchInfoMovie(movie.maPhim))
           handleShowEditMovieModal()
-          }}>Edit</button>
-        <EditMovieModal id={movie.maPhim} showEditMovieModal={showEditMovieModal} handleCloseEditMovieModal={handleCloseEditMovieModal} />
+        }}>Edit</button>
+        <EditMovieModal showEditMovieModal={showEditMovieModal} handleCloseEditMovieModal={handleCloseEditMovieModal} />
         <button className='btn btn-danger mt-1'>Delete</button>
       </td>
     </tr>

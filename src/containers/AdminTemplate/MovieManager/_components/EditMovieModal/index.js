@@ -4,23 +4,22 @@ import { Modal, Button } from 'react-bootstrap';
 import { IoCloseSharp } from "react-icons/io5";
 import { useFormik } from "formik";
 import Checkbox from '@mui/material/Checkbox';
-import { actFetchInfoMovie } from '../../modules/actions';
 import moment from "moment"
 
 export default function EditMovieModal(props) {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     const [imgFile, setImgFile] = useState('')
-    const { showEditMovieModal, handleCloseEditMovieModal } = props;
+    const {showEditMovieModal, handleCloseEditMovieModal } = props;
+
 
     const data = useSelector(state => state.movieManagerReducer.dataInfoMovie);
+    console.log(data);
     const loading = useSelector(state => state.movieManagerReducer.loadingInfoMovie);
     const error = useSelector(state => state.movieManagerReducer.errorInfoMovie);    
     const dispatch = useDispatch();
-    useEffect(() => {
-        const {id}=props;
-        console.log(id);
-        (dispatch(actFetchInfoMovie(id)));
-    }, []);
+    // useEffect(() => {
+    //     (dispatch(actFetchInfoMovie(id)));
+    // }, []);
 
     const formik = useFormik({
         initialValues: {

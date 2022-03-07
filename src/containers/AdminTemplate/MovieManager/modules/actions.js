@@ -79,7 +79,7 @@ export const actFetchInfoMovie = (maPhim)=>{
             })
             .catch((error)=>{
                 dispatch(actInfoMovieFailed(error))
-                console.log(error.response?.data)
+                // console.log(error.response?.data)
             })
     }
 }
