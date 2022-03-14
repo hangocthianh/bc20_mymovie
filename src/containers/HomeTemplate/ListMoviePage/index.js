@@ -1,7 +1,10 @@
 import React from 'react';
+import Section from 'containers/HomeTemplate/_components/Section';
+
 
 export default function ListMoviePage(props) {
   return (
-    <h1>ListMoviePage</h1>
+    <Section width={250} btnDisabled={false} headerName={"movie-selection"}></Section>
+
   );
 }

@@ -32,6 +32,12 @@ const routeHome = [
     path: "/book-ticket/:maLichChieu",
     component: lazy(() => import("containers/HomeTemplate/BookTicket"))
   },
+  // user Profile
+  {
+    exact: false,
+    path: "/user-profile",
+    component: lazy(()=>import ("containers/HomeTemplate/UserProfile"))
+  }
 ];
 
 const routeAdmin = [

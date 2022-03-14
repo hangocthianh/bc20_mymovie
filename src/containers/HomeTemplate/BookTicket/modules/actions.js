@@ -49,7 +49,9 @@ export const actBookTicket = (ticket) => {
             api
                 .post('QuanLyDatVe/DatVe',ticket)
                 .then((result) => {
-                    dispatch(actBookTicketSuccess(result.data.content))
+                    dispatch(actBookTicketSuccess(result.data.content));
+                    console.log(result.data.content);
+                
                 })
                 .catch((error) => {
                     dispatch(actBookTicketFailed(error))
