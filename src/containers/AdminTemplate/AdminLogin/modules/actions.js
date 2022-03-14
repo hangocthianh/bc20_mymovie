@@ -16,7 +16,7 @@ export const actAdminLogin = (user, history) => {
             },
           });
         }
-        localStorage.setItem("UserAdmin", JSON.stringify(result.data));
+        localStorage.setItem("UserLogin", JSON.stringify(result.data));
         history.replace("/dashboard");
         dispatch(actAdminLoginSuccess(result.data))
       })

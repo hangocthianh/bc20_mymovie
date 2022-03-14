@@ -10,7 +10,6 @@ import Movie from './_components/Movie'
 export default function MovieManager() {
 
     const data = useSelector(state => state.movieManagerReducer.data);
-    console.log(data)
     const dispatch = useDispatch();
     useEffect(() => {
         (dispatch(actFetchMovieList()));

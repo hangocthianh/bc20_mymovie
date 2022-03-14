@@ -1,0 +1,3 @@
+export const USER_PROFILE_REQUEST = "@userProfile/USER_PROFILE_REQUEST";
+export const USER_PROFILE_SUCCESS = "@userProfile/USER_PROFILE_SUCCESS";
+export const USER_PROFILE_FAILED = "@userProfile/USER_PROFILE_FAILED";

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import MenuToggle from '@mui/material/Menu';
-import MenuItemToggle from '@mui/material/MenuItem';
-import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
-import { useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import MenuToggle from "@mui/material/Menu";
+import MenuItemToggle from "@mui/material/MenuItem";
+import Button from "@mui/material/Button";
+import Avatar from "@mui/material/Avatar";
+import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
-import LoginModal from './_components/LoginModal';
-import RegisterModal from './_components/RegisterModal';
+import LoginModal from "./_components/LoginModal";
+import RegisterModal from "./_components/RegisterModal";
 
 import {
   Box,
@@ -17,18 +17,20 @@ import {
   NavRight,
   NavItem,
   HeaderLink,
-} from './_components/HeaderStyles';
+  ItemToggleLink,
+} from "./_components/HeaderStyles";
 import {
   Menu,
   MenuItem,
   MenuLink,
   NavToggleClose,
   NavToggleOpen,
-  CloseToggle
-} from './_components/NavToggled'
+  CloseToggle,
+} from "./_components/NavToggled";
 
 function Header() {
-  const isLogin = useSelector(state => state.headerReducer.isLogin);
+  // const user = useSelector((state=> state.headerReducer.data));
+  //console.log(JSON.parse(localStorage.getItem("UserLogin")).content);
   // Navbar Toggle
   const [navToggled, setNavToggled] = useState(false);
   const handleNavToggle = () => {
@@ -47,17 +49,21 @@ function Header() {
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+    console.log(event.currentTarget)
   };
   const handleClose = () => setAnchorEl(null);
 
   // Handle sweetalert2
   const alertRegister = () => {
     Swal.fire({
-      icon: 'success',
-      title: 'Đăng ký thành công',
-      confirmButtonText: 'OK'
-    })
-  }
+      icon: "success",
+      title: "Đăng ký thành công",
+      confirmButtonText: "OK",
+    });
+  };
+  
+
+
   return (
     <>
       <Box>
@@ -66,12 +72,14 @@ function Header() {
             className="animate__animated animate__fadeInRight"
             onClick={handleNavToggle}
           />
-          <Logo to="/">
-            IMOVIE
-          </Logo>
+          <Logo to="/">IMOVIE</Logo>
           <NavLeft>
             <NavItem>
-              <HeaderLink activeClassName="active" className="nav-link" to="/list-movie-page">
+              <HeaderLink
+                activeClassName="active"
+                className="nav-link"
+                to="/list-movie-page"
+              >
                 PHIM
               </HeaderLink>
             </NavItem>
@@ -92,40 +100,61 @@ function Header() {
             </NavItem>
           </NavLeft>
           <NavRight>
-            {!localStorage.getItem("UserLogin") ?
+            {!localStorage.getItem("UserLogin") ? (
               <>
                 {/* Login Modal Toggle */}
                 <Button
                   variant="text"
-                  sx={{ color: 'white', fontSize: { xs: 11, md: 13 }, textTransform: 'capitalize' }}
+                  sx={{
+                    color: "white",
+                    fontSize: { xs: 11, md: 13 },
+                    textTransform: "capitalize",
+                  }}
                   onClick={handleShowLoginModal}
                   className="mt-1"
                 >
                   Đăng nhập
                 </Button>
-                <LoginModal showLogin={showLogin} handleCloseLoginModal={handleCloseLoginModal} />
+                <LoginModal
+                  showLogin={showLogin}
+                  handleCloseLoginModal={handleCloseLoginModal}
+                />
                 {/* Register Modal Toggle */}
                 <Button
                   variant="text"
-                  sx={{ color: 'white', fontSize: { xs: 11, md: 13 }, textTransform: 'capitalize' }}
+                  sx={{
+                    color: "white",
+                    fontSize: { xs: 11, md: 13 },
+                    textTransform: "capitalize",
+                  }}
                   onClick={handleShowRegisterModal}
                   className="mt-1"
                 >
                   Đăng ký
                 </Button>
-                <RegisterModal showRegisterModal={showRegisterModal} handleCloseRegisterModal={handleCloseRegisterModal} handleAlert={alertRegister} />
-              </> :
+                <RegisterModal
+                  showRegisterModal={showRegisterModal}
+                  handleCloseRegisterModal={handleCloseRegisterModal}
+                  handleAlert={alertRegister}
+                />
+              </>
+            ) : (
               // Show userName & avatar when login success
               <>
-                <span className="text-primary pr-2">{JSON.parse(localStorage.getItem("UserLogin")).content.taiKhoan}</span>
+                <span className="text-primary pr-2" >
+                  {
+                    JSON.parse(localStorage.getItem("UserLogin")).content
+                      .taiKhoan
+                  }
+                </span>
                 <Button
                   id="basic-button"
-                  aria-controls={open ? 'basic-menu' : undefined}
+                  aria-controls={open ? "basic-menu" : undefined}
                   aria-haspopup="true"
-                  aria-expanded={open ? 'true' : undefined}
+                  aria-expanded={open ? "true" : undefined}
                   onClick={handleClick}
                 >
-                  <Avatar src="/broken-image.jpg" className="mt-1"></Avatar>
+                  <Avatar src="/broken-image.jpg" className="mt-1" ></Avatar>
                 </Button>
                 {/* User list actions toggle */}
                 <MenuToggle
@@ -134,11 +163,18 @@ function Header() {
                   open={open}
                   onClose={handleClose}
                   MenuListProps={{
-                    'aria-labelledby': 'basic-button',
+                    "aria-labelledby": "basic-button",
                   }}
                 >
-                  <MenuItemToggle onClick={handleClose}>Profile</MenuItemToggle>
-                  <MenuItemToggle onClick={handleClose}>My account</MenuItemToggle>
+                  <MenuItemToggle
+                    onClick={handleClose}
+                  >
+                    <ItemToggleLink to="/user-profile">Profile</ItemToggleLink>
+                    
+                  </MenuItemToggle>
+                  {/* <MenuItemToggle to="/user-profile">
+                    My account
+                  </MenuItemToggle> */}
                   <MenuItemToggle
                     onClick={() => {
                       localStorage.removeItem("UserLogin");
@@ -150,12 +186,12 @@ function Header() {
                   </MenuItemToggle>
                 </MenuToggle>
               </>
-            }
+            )}
           </NavRight>
         </Container>
       </Box>
       {/* Show NavToggle when screen less than 768px */}
-      {navToggled ?
+      {navToggled ? (
         <NavToggleClose className="animate__animated animate__fadeIn">
           <Menu>
             <MenuItem className="animate__animated animate__fadeInRight">
@@ -173,13 +209,12 @@ function Header() {
           </Menu>
           <CloseToggle
             className="animate__animated animate__fadeInRight"
-            animation-duration='2s'
+            animation-duration="2s"
             onClick={handleNavToggle}
           />
-        </NavToggleClose > : null
-      }
-
+        </NavToggleClose>
+      ) : null}
     </>
-  )
+  );
 }
 export default Header;

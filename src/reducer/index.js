@@ -7,7 +7,6 @@ import headerReducer from "containers/HomeTemplate/_components/Header/modules/re
 import movieManagerReducer from 'containers/AdminTemplate/MovieManager/modules/reducer';
 import adminLoginReducer from "containers/AdminTemplate/AdminLogin/modules/reducer";
 import userManagementReducer from "containers/AdminTemplate/UserManagement/modules/reducer";
-import authReducer from 'containers/AdminTemplate/AuthPage/modules/reducer';
 
 const rootReducer = combineReducers({
   detailMovieReducer,
@@ -17,7 +16,6 @@ const rootReducer = combineReducers({
   movieManagerReducer,
   adminLoginReducer,
   userManagementReducer,
-  authReducer,
 
 })
 

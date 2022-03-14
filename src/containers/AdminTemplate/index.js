@@ -5,7 +5,7 @@ import Sidebar from 'containers/AdminTemplate/_components/SideBar'
 
 export default function AdminTemplate(props) {
   const { exact, path, component } = props;
-  if (localStorage.getItem("UserAdmin")) {
+  if (localStorage.getItem("UserLogin")) {
     return (
       <>
         <Navbar />

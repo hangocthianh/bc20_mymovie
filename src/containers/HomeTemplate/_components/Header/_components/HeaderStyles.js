@@ -111,3 +111,10 @@ export const HeaderLink = styled(NavLink)`
   }
 `;
 
+export const ItemToggleLink = styled(NavLink)`
+  text-decoration: none!important;
+  color: #000000;
+  &:hover{
+    color: #F08B23;
+  }
+`;
